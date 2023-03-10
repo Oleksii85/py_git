@@ -1,0 +1,193 @@
+
+8 kyu Beginner Series #1 School Paperwork
+https://www.codewars.com/kata/55f9b48403f6b87a7c0000bd
+
+def paperwork(n, m):
+    if n < 0 or m < 0:
+        return 0
+    else:
+        s = n * m
+    return s
+___________________________________________________________________
+8 kyu Beginner - Reduce but Grow
+https://www.codewars.com/kata/57f780909f7e8e3183000078
+
+def grow(arr):
+    b = 1
+    for x in arr:
+        b = b * x
+    return b
+____________________________________________________________________
+8 kyu Basic Mathematical Operations
+https://www.codewars.com/kata/57356c55867b9b7a60000bd7
+
+def basic_op(operator, value1, value2):
+    n = 0
+    if operator == '+':
+        n = value1 + value2
+    if operator == '-':
+        n = value1 - value2
+    if operator == '*':
+        n= value1 * value2
+    if operator == '/':
+        n = value1 / value2
+    return n
+_____________________________________________________________________
+
+8 kyu You Can't Code Under Pressure #1
+https://www.codewars.com/kata/53ee5429ba190077850011d4
+
+def double_integer(i):
+    return int(i * 2)
+______________________________________________________________________
+8 kyu The 'if' function
+https://www.codewars.com/kata/54147087d5c2ebe4f1000805
+
+def _if(bool, func1, func2):
+    return func1() if bool else func2()
+
+def truthy():
+    print("True")
+
+def falsey():
+    print("False")
+_______________________________________________________________________
+
+8 kyu Dollars and Cents
+https://www.codewars.com/kata/55902c5eaa8069a5b4000083
+
+def format_money(amount):
+    return '${0}'.format('%.2f'%amount)
+_______________________________________________________________________
+
+8 kyu DNA to RNA Conversion
+https://www.codewars.com/kata/5556282156230d0e5e000089
+
+def dna_to_rna(dna):
+    return dna.replace('T', 'U')
+_______________________________________________________________________
+
+8 kyu L1: Set Alarm
+https://www.codewars.com/kata/568dcc3c7f12767a62000038
+
+def set_alarm(employed, vacation):
+    if employed == True and vacation == True:
+        return False
+    if employed == False and vacation == True:
+        return False
+    if employed == False and vacation == False:
+        return False
+    if employed == True and vacation == False:
+        return True
+________________________________________________________________________
+
+8 kyu Transportation on vacation
+https://www.codewars.com/kata/568d0dd208ee69389d000016
+
+def rental_car_cost(d):
+    price_day = 40
+    total = 0
+    if d >= 3 and d < 5:
+        total = (d * price_day) - 20
+        return total
+    if d >= 5:
+        total = (d * price_day) - 50
+        return total
+    if d < 3:
+        total = d * price_day
+        return total
+_________________________________________________________________________
+
+8 kyu Counting sheep...
+https://www.codewars.com/kata/54edbc7200b811e956000556
+
+def count_sheeps(sheep):
+    sh = 0
+    for i in sheep:
+        if i == True:
+            sh += 1
+    return sh
+_________________________________________________________________________
+
+8 kyu Reversed sequence
+https://www.codewars.com/kata/5a00e05cc374cb34d100000d
+
+def reverse_seq(n):
+    L = []
+    if n > 0:
+        for i in range(1, n+1):
+            L.append(i)
+    return(L[::-1])
+_________________________________________________________________________
+
+8 kyu Convert a string to an array
+https://www.codewars.com/kata/57e76bc428d6fbc2d500036d
+
+def string_to_array(s):
+    return s.split(" ")
+_________________________________________________________________________
+
+8 kyu A Needle in the Haystack
+https://www.codewars.com/kata/56676e8fabd2d1ff3000000c
+
+def find_needle(haystack):
+    return "found the needle at position {}".format(haystack.index("needle"))
+_________________________________________________________________________
+
+8 kyu Return Negative
+https://www.codewars.com/kata/55685cd7ad70877c23000102
+
+def make_negative( number ):
+    if number > 0:
+        return number * -1
+    else:
+        return number
+    pass
+_________________________________________________________________________
+
+8 kyu Are You Playing Banjo?
+https://www.codewars.com/kata/53af2b8861023f1d88000832
+
+def are_you_playing_banjo(name):
+    if name[0] == 'R' or name[0] == 'r':
+        return name + " plays banjo"
+    else:
+        return name + " does not play banjo"
+_________________________________________________________________________
+
+8 kyu Convert boolean values to strings 'Yes' or 'No'.
+https://www.codewars.com/kata/53369039d7ab3ac506000467
+
+def bool_to_word(boolean):
+    if boolean == True:
+        boolean = "Yes"
+    else:
+        boolean = "No"
+    return boolean
+_________________________________________________________________________
+
+8 kyu Keep Hydrated!
+https://www.codewars.com/kata/582cb0224e56e068d800003c
+
+def litres(time):
+    time *= 0.5
+    return int(time)
+_________________________________________________________________________
+
+8 kyu Reversed Strings
+https://www.codewars.com/kata/5168bb5dfe9a00b126000018
+
+def solution(string):
+    return string[::-1]
+_________________________________________________________________________
+
+7 kyu List Filtering
+https://www.codewars.com/kata/53dbd5315a3c69eed20002dd
+
+def filter_list(l):
+    L = []
+    for i in l:
+        if type(i) == int:
+            L.append(i)
+    return L
+_________________________________________________________________________
