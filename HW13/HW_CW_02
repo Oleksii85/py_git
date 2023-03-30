@@ -1,0 +1,8 @@
+new=# SELECT t1.fullname AS praded, t2.fullname AS ded, t3.fullname AS otec, t4.fullname AS syn, t5.fullname AS onuk FROM people t1 INNER JOIN people t2 ON(t1.id = t2.pid) INNER JOIN people t3 ON(t2.id = t3.pid) INNER JOIN people t4 ON(t3.id = t4.pid) INNER JOIN people t5 ON(t4.id = t5.pid);
+ praded |        ded        |     otec      |    syn    | onuk
+--------+-------------------+---------------+-----------+-------
+ Ostap  | Mykola Octapovych | Mychaylo M-ch | Mychalych | Yegor
+(1 строка)
+
+
+new=#
