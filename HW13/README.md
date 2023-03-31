@@ -1,0 +1,127 @@
+movies=# SELECT * FROM dog_2022;
+ id |       actors       |   directors
+----+--------------------+----------------
+  1 | Channing Tatum     | Channing Tatum
+  2 | Jane Adams         | Reid Carolin
+  3 | Kevin Nash         |
+  4 | Qorianka Kilcher   |
+  5 | Etyhan Suplee      |
+  6 | Emmy Raven-Lampman |
+  7 | Nicole LaLiberte   |
+(7 строк)
+
+movies=# SELECT * FROM the_lost_city2022;
+ id |      actors      | directors
+----+------------------+-----------
+  1 | Sandra Bullock   | Adam Nee
+  2 | Channing Tatum   |
+  3 | Daniel Radcliffe |
+  4 | Brad Pitt        |
+(4 строки)
+
+movies=# SELECT * FROM bullet_train2022;
+ id |      actors       |  directors
+----+-------------------+--------------
+  1 | Sandra Bullock    | David Leitch
+  2 | Michael Shannon   |
+  3 | Andrew Koji       |
+  4 | Brad Pitt         |
+  5 | Brian Tyree Henry |
+(5 строк)
+
+movies=# SELECT id,actors, directors FROM dog_2022 RIGHT JOIN the_lost_city2022 USING(id,actors, directors);
+ id |      actors      | directors
+----+------------------+-----------
+  1 | Sandra Bullock   | Adam Nee
+  2 | Channing Tatum   |
+  3 | Daniel Radcliffe |
+  4 | Brad Pitt        |
+(4 строки)
+
+movies=# SELECT actors, directors FROM the_lost_city2022 INNER JOIN bullet_train2022 USING(actors, directors);
+  actors   | directors
+-----------+-----------
+ Brad Pitt |
+(1 строка)
+
+movies=# SELECT actors, directors FROM the_lost_city2022 LEFT JOIN bullet_train2022 USING(actors, directors);
+      actors      | directors
+------------------+-----------
+ Sandra Bullock   | Adam Nee
+ Channing Tatum   |
+ Daniel Radcliffe |
+ Brad Pitt        |
+(4 строки)
+
+movies=# SELECT actors, directors FROM the_lost_city2022 RIGHT JOIN bullet_train2022 USING(actors, directors);
+      actors       |  directors
+-------------------+--------------
+ Sandra Bullock    | David Leitch
+ Michael Shannon   |
+ Andrew Koji       |
+ Brad Pitt         |
+ Brian Tyree Henry |
+(5 строк)
+
+movies=# SELECT actors FROM the_lost_city2022 FULL JOIN bullet_train2022 USING(actors);
+      actors
+-------------------
+ Sandra Bullock
+ Channing Tatum
+ Daniel Radcliffe
+ Brad Pitt
+ Michael Shannon
+ Brian Tyree Henry
+ Andrew Koji
+(7 строк)
+
+movies=# SELECT actors, directors FROM the_lost_city2022 FULL JOIN bullet_train2022 USING(actors, directors);
+      actors       |  directors
+-------------------+--------------
+ Sandra Bullock    | Adam Nee
+ Channing Tatum    |
+ Daniel Radcliffe  |
+ Brad Pitt         |
+ Brian Tyree Henry |
+ Andrew Koji       |
+ Michael Shannon   |
+ Sandra Bullock    | David Leitch
+(8 строк)
+
+movies=# SELECT actors, directors FROM the_lost_city2022 FULL JOIN bullet_train2022 USING(actors, directors) WHERE actors = 'Sandra Bullock' OR actors = 'Channing Tatum';
+     actors     |  directors
+----------------+--------------
+ Sandra Bullock | Adam Nee
+ Channing Tatum |
+ Sandra Bullock | David Leitch
+(3 строки)
+
+movies=# SELECT actors FROM the_lost_city2022 FULL JOIN bullet_train2022 USING(actors) FULL JOIN dog_2022 USING(actors) WHERE actors = 'Brad Pitt' OR actors = 'Channing Tatum';
+     actors
+----------------
+ Channing Tatum
+ Brad Pitt
+
+movies=# SELECT actors, directors FROM the_lost_city2022 FULL JOIN bullet_train2022 USING(actors, directors) WHERE directors = 'Adam Nee' OR actors = 'Sandra Bullock';
+     actors     |  directors
+----------------+--------------
+ Sandra Bullock | Adam Nee
+ Sandra Bullock | David Leitch
+
+movies=# SELECT actors, directors FROM the_lost_city2022 LEFT JOIN bullet_train2022 USING(actors, directors) UNION SELECT actors, directors FROM the_lost_city2022 LEFT JOIN bullet_train2022 USING(actors, directors);
+      actors      | directors
+------------------+-----------
+ Brad Pitt        |
+ Daniel Radcliffe |
+ Channing Tatum   |
+ Sandra Bullock   | Adam Nee
+(4 строки)
+
+movies=# SELECT actors, directors FROM the_lost_city2022 LEFT JOIN bullet_train2022 USING(actors, directors) UNION SELECT actors, directors FROM the_lost_city2022 LEFT JOIN bullet_train2022 USING(actors, directors) ORDER BY actors DESC;
+      actors      | directors
+------------------+-----------
+ Sandra Bullock   | Adam Nee
+ Daniel Radcliffe |
+ Channing Tatum   |
+ Brad Pitt        |
+(4 строки)
